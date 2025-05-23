@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loading Screen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="admin-list">
+  <div class="admin">
+    <img src="admin1.png" alt="Admin 1 Logo" />
+    <span>NAME #1</span>
+  </div>
+  <div class="admin">
+    <img src="admin2.png" alt="Admin 2 Logo" />
+    <span>NAME #2</span>
+  </div>
+  <!-- Add as many admins as you want -->
+</div>
+
+
+  <!-- Video Background -->
+<video id="video-bg" autoplay muted loop playsinline disablepictureinpicture>
+  <source src="background.mp4" type="video/mp4">
+</video>
+
+  <!-- Dark Overlay + Fizzle -->
+  <div id="overlay"></div>
+
+  <!-- Centered Logo -->
+  <img id="logo" src="logo.png" alt="Logo">
+
+  <!-- Background Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="background.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Volume Control UI -->
+  <div id="volume-container">
+    <label for="volume-slider">🔊 Volume</label>
+    <input type="range" id="volume-slider" min="0" max="100" value="50">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

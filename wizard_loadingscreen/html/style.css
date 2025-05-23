@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: black;
+  font-family: 'Courier New', monospace;
+}
+
+/* Video background: at lowest z-index */
+#video-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Dark overlay with subtle transparency, above video but below UI */
+#overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3); /* less opaque so video shows */
+  z-index: 1;
+  pointer-events: none; /* so clicks go through */
+}
+
+/* Logo on top */
+#logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  max-width: 300px;
+  z-index: 2;
+}
+
+/* Volume UI on top */
+#volume-container {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(20, 20, 20, 0.6);
+  padding: 15px 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 3;
+  color: #fff;
+  backdrop-filter: blur(3px);
+}
+
+#volume-container:hover {
+  background: rgba(30, 30, 30, 0.8);
+}
+
+#volume-slider {
+  width: 120px;
+  margin-left: 10px;
+  accent-color: #66ccff;
+  background: transparent;
+}
+
+#admin-list {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: rgba(20, 20, 20, 0.6);
+  padding: 15px 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  backdrop-filter: blur(3px);
+  max-width: 280px;
+  max-height: 300px;       /* Limit height to add scrolling if many admins */
+  overflow-y: auto;        /* Scroll if content too tall */
+  z-index: 3;
+  font-family: 'Courier New', monospace;
+  user-select: none;
+}
+
+/* Each admin row */
+#admin-list .admin {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* separator line */
+}
+
+/* Remove border from last admin */
+#admin-list .admin:last-child {
+  border-bottom: none;
+}
+
+/* Logo size fixed */
+#admin-list .admin img {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
